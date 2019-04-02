@@ -1,7 +1,7 @@
 import os
 import sys
 
-sys.path.append('./../')
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 
 from datetime import datetime, timedelta
 import numpy as np
