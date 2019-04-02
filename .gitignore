@@ -3,3 +3,4 @@
 app
 /cache_files/*
 /test.py
+/config/mysql.py
