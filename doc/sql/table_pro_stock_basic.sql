@@ -13,9 +13,9 @@ create table pro_stock_basic (
     exchange     VARCHAR(10)  null comment '交易所代码',
     curr_type    VARCHAR(10)  null comment '交易货币',
     list_status  VARCHAR(1)   null comment '上市状态： L上市 D退市 P暂停上市',
-    list_date    DATE(10) null comment '上市日期',
-    delist_date  DATE(10) null comment '退市日期',
+    list_date    DATE null comment '上市日期',
+    delist_date  DATE null comment '退市日期',
     is_hs        VARCHAR(1)   null comment '是否沪深港通标的，N否 H沪股通 S深股通',
-    created_date DATE(10) null
+    created_date DATE null
 );
 
