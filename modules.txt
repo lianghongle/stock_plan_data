@@ -1,0 +1,4 @@
+sqlalchemy
+pymysql
+bs4
+tushare
