@@ -1,6 +1,8 @@
 import tushare as ts
 import threading
 
+import config.config as config
+
 class MyTushare(object):
 
     _instance_lock = threading.Lock()
@@ -9,7 +11,7 @@ class MyTushare(object):
     pro = None
 
     def __init__(self):
-        ts.set_token('0d44cd41d795f64783f2ae12b15338453260388acedf12efbf6b303c')
+        ts.set_token(config.TUSHARE_TOKEN)
 
         self.ts = ts
         self.pro = ts.pro_api()

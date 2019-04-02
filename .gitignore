@@ -5,3 +5,4 @@ app
 /test.py
 /config/mysql.py
 /doc/install.md
+/config/config.py
