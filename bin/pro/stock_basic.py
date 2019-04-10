@@ -69,17 +69,17 @@ def stock_basics(date=None, cache_file=False, debug=False):
 
                 return False
 
-            all_stock = all_stock.reset_index().sort_values('symbol')
+            all_stock = all_stock.sort_values('symbol')
             all_stock.to_csv(tmp_file_all_stock, index=False)
 
         all_stock['created_date'] = date
 
         # 存入数据库
         # 更新数据前清空表，防止修改表结构
-        # sql_truncate = 'TRUNCATE `' + table_stock + '`'
-        # engine.execute(sql_truncate)
+        sql_truncate = 'TRUNCATE `' + table_pro_stock_basic + '`'
+        engine.execute(sql_truncate)
 
-        all_stock.to_sql(table_pro_stock_basic, engine, if_exists='replace', index=False) ## replace/append
+        all_stock.to_sql(table_pro_stock_basic, engine, if_exists='append', index=False) ## replace/append
     else:
         print(date + '数据已经存在')
 

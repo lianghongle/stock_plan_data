@@ -87,5 +87,11 @@ def stock_basics(date=None, cache_file=False, debug=False):
     # return all_stock
     return True
 
+date = None
+if len(sys.argv) == 2:
+    script,date = sys.argv
+    print(script)
+    print(date)
 
-stock_basics(date='20190328')
+# stock_basics(date='20190328')
+stock_basics(date=date)
