@@ -24,7 +24,7 @@ create table stock_basic (
     gpr              DOUBLE(22, 0) null comment '毛利率(%)',
     npr              DOUBLE(22, 0) null comment '净利润率(%)',
     holders          INT(10)       null comment '股东人数',
-    created_date     DATE(10) null
+    created_date     DATE null
 );
 
 
