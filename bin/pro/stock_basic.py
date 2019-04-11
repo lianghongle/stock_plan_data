@@ -42,6 +42,7 @@ def stock_basics(date=None, cache_file=False, debug=False):
                                                                                                 date)
         check = engine.execute(check_table_data_sql).fetchone()
 
+    check = None
     if check is None:
         # 所有股票基本数据的文件,可以临时保存文件
         tmp_file_all_stock_path = conf.CACHE_FILE_PATH + '/pro/stock_basics'
@@ -78,8 +79,24 @@ def stock_basics(date=None, cache_file=False, debug=False):
         # 更新数据前清空表，防止修改表结构
         sql_truncate = 'TRUNCATE `' + table_pro_stock_basic + '`'
         engine.execute(sql_truncate)
-
         all_stock.to_sql(table_pro_stock_basic, engine, if_exists='append', index=False) ## replace/append
+
+        # 所在地域处理
+        table_pro_stock_area = conf_talbes.STOCK_AREA
+        area = all_stock.drop_duplicates(['area'])
+        area = area.loc[:, ['area', 'created_date']]
+        area_truncate = 'TRUNCATE `' + table_pro_stock_area + '`'
+        engine.execute(area_truncate)
+        area.to_sql(table_pro_stock_area, engine, if_exists='append', index=False)
+
+        # 所属行业处理
+        table_pro_stock_industry = conf_talbes.STOCK_INDUSTRY
+        industry = all_stock.drop_duplicates(['industry'])
+        industry = industry.loc[:, ['industry', 'created_date']]
+        industry_truncate = 'TRUNCATE `' + table_pro_stock_industry + '`'
+        engine.execute(industry_truncate)
+        industry.to_sql(table_pro_stock_industry, engine, if_exists='append', index=False)
+
     else:
         print(date + '数据已经存在')
 
