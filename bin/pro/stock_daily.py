@@ -17,6 +17,14 @@ desc = '日线行情'
 def daily(date=None, cache_file=False, debug=False):
     """
     日线行情
+
+    数据更新时间：交易日每天15点～16点之间
+
+    Args:
+        date:
+
+    Returns:
+
     """
     # 如果没有传日期，默认取当前日期
     if date is None:

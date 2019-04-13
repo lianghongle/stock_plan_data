@@ -17,6 +17,12 @@ desc = '周线行情'
 def weekly(date=None, cache_file=False, debug=False):
     """
     周线行情
+
+    Args:
+        date:每周五
+
+    Returns:
+
     """
     # 如果没有传日期，默认取当前日期
     if date is None:

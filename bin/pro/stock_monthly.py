@@ -17,6 +17,12 @@ desc = '月线行情'
 def monthly(date=None, cache_file=False, debug=False):
     """
     月线行情
+
+     Args:
+        date:每月最后一个交易日日期(每周五，不是最后一个为 None)
+
+    Returns:
+
     """
     # 如果没有传日期，默认取当前日期
     if date is None:
@@ -33,9 +39,9 @@ def monthly(date=None, cache_file=False, debug=False):
     engine = Mysql.conn()
 
     # 是否交易日
-    if mts.is_trade_cal(exchange = '', date = date) == False:
-        print('非交易日')
-        return False
+    # if mts.is_trade_cal(exchange = '', date = date) == False:
+    #     print('非交易日')
+    #     return False
 
     # 检查表是否存在
     check_table_sql = "show tables like '{}'".format(table_pro_monthly)
