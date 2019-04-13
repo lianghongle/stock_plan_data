@@ -1,5 +1,5 @@
 -- auto-generated definition
-create table stock_industry (
+create table pro_stock_industry (
     id           INT(10) auto_increment
         primary key,
     industry     VARCHAR(10) null,

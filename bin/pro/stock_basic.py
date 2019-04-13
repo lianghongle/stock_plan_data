@@ -81,7 +81,7 @@ def stock_basics(date=None, cache_file=False, debug=False):
         all_stock.to_sql(table_pro_stock_basic, engine, if_exists='append', index=False) ## replace/append
 
         # 所在地域处理
-        table_pro_stock_area = conf_talbes.STOCK_AREA
+        table_pro_stock_area = conf_talbes.PRO_STOCK_AREA
         area = all_stock.drop_duplicates(['area'])
         area = area.loc[:, ['area', 'created_date']]
         area_truncate = 'TRUNCATE `' + table_pro_stock_area + '`'
@@ -89,7 +89,7 @@ def stock_basics(date=None, cache_file=False, debug=False):
         area.to_sql(table_pro_stock_area, engine, if_exists='append', index=False)
 
         # 所属行业处理
-        table_pro_stock_industry = conf_talbes.STOCK_INDUSTRY
+        table_pro_stock_industry = conf_talbes.PRO_STOCK_INDUSTRY
         industry = all_stock.drop_duplicates(['industry'])
         industry = industry.loc[:, ['industry', 'created_date']]
         industry_truncate = 'TRUNCATE `' + table_pro_stock_industry + '`'

@@ -4,10 +4,8 @@ PRO_STOCK_COMPANY = 'pro_stock_company'
 PRO_STOCK_DAILY = 'pro_stock_daily'
 PRO_STOCK_WEEKLY = 'pro_stock_weekly'
 PRO_STOCK_MONTHLY = 'pro_stock_monthly'
+PRO_STOCK_AREA = 'pro_stock_area'
+PRO_STOCK_INDUSTRY = 'pro_stock_industry'
 
 #
 STOCK_BASIC = 'stock_basic'
-
-# 不区分 pro 和 old
-STOCK_AREA = 'stock_area'
-STOCK_INDUSTRY = 'stock_industry'
