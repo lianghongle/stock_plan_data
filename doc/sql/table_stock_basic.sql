@@ -25,7 +25,7 @@ create table stock_basic (
     npr              DOUBLE(22, 0) null comment '净利润率(%)',
     holders          INT(10)       null comment '股东人数',
     created_date     DATE null
-);
+) COMMENT='股票基础信息数据';
 
 
 

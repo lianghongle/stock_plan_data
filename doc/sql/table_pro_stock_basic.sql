@@ -17,5 +17,5 @@ create table pro_stock_basic (
     delist_date  DATE null comment '退市日期',
     is_hs        VARCHAR(1)   null comment '是否沪深港通标的，N否 H沪股通 S深股通',
     created_date DATE null
-);
+) COMMENT='股票基础信息数据';
 

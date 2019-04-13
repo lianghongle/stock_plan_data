@@ -6,5 +6,5 @@ create table stock_industry (
     created_date DATE null,
     constraint stock_industry_name_uindex
         unique (industry)
-);
+) COMMENT='所属行业';
 

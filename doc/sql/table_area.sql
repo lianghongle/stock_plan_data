@@ -6,5 +6,5 @@ create table stock_area (
     created_date DATE null,
     constraint stock_area_name_uindex
         unique (area)
-);
+) COMMENT='所在地域';
 
