@@ -42,7 +42,6 @@ def stock_basics(date=None, cache_file=False, debug=False):
                                                                                                 date)
         check = engine.execute(check_table_data_sql).fetchone()
 
-    check = None
     if check is None:
         # 所有股票基本数据的文件,可以临时保存文件
         tmp_file_all_stock_path = conf.CACHE_FILE_PATH + '/pro/stock_basics'
