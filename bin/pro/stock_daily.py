@@ -1,9 +1,10 @@
 import os
 import sys
+import time
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 
-from datetime import datetime, timedelta
+import datetime
 import numpy as np
 import pandas as pd
 
@@ -28,7 +29,7 @@ def daily(date=None, cache_file=False, debug=False):
     """
     # 如果没有传日期，默认取当前日期
     if date is None:
-        date = datetime.now().strftime("%Y%m%d")
+        date = datetime.datetime.now().strftime("%Y%m%d")
         # date = (datetime.now() - timedelta(days=1)).strftime("%Y%m%d")
 
     print('获取 ' + desc + ' ' + date)
@@ -99,11 +100,40 @@ def daily(date=None, cache_file=False, debug=False):
     # return all_stock
     return True
 
-date = None
-if len(sys.argv) == 2:
-    script,date = sys.argv
-    print(script)
-    print(date)
 
-# 获取基础信息数据
-daily(date=date)
+## start ##
+
+start_date = None
+end_date = None
+
+argc = len(sys.argv)
+print(argc)
+# 0 参数，当前日期；1个参数，指定日期；2个参数，一段时间
+if argc == 1:
+    # 获取基础信息数据
+    daily(date=start_date)
+elif argc == 2:
+    script, start_date = sys.argv
+
+    # 获取基础信息数据
+    daily(date=start_date)
+    print(start_date)
+elif argc == 3:
+    script,start_date,end_date = sys.argv
+    print(start_date,end_date)
+
+    start_date_struct = time.strptime(start_date, "%Y%m%d")
+    end_date_struct = time.strptime(end_date, "%Y%m%d")
+
+    begin = datetime.date(start_date_struct.tm_year, start_date_struct.tm_mon, start_date_struct.tm_mday)
+    end = datetime.date(end_date_struct.tm_year, end_date_struct.tm_mon, end_date_struct.tm_mday)
+    for i in range((end - begin).days + 1):
+        day = begin + datetime.timedelta(days=i)
+        day.strftime('%Y%m%d')
+        print(day.strftime('%Y%m%d'))
+
+        # 获取基础信息数据
+        daily(date=day.strftime('%Y%m%d'))
+        time.sleep(0.5)
+else:
+    print('参数个数未处理情况')

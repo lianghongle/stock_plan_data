@@ -11,6 +11,8 @@ DIRECTORY STRUCTURE
 /
     app/                应用(想结合 django)
     bin/                应用脚本
+        pro/            pro接口
+        history/        获取历史数据脚本
     doc/                文档
     cache_files/        csv
     common/             公用
