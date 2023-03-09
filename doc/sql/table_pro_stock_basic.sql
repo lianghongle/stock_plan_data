@@ -1,21 +1,20 @@
--- auto-generated definition
-create table pro_stock_basic (
-    id           INT(10) auto_increment
-        primary key,
-    ts_code      VARCHAR(10)  null comment 'TS代码',
-    symbol       VARCHAR(6)   not null comment '股票代码',
-    name         VARCHAR(15)  null comment '股票名称',
-    area         VARCHAR(10)  null comment '所在地域',
-    industry     VARCHAR(10)  null comment '所属行业',
-    fullname     VARCHAR(100) null comment '股票全称',
-    enname       VARCHAR(100) null comment '英文全称',
-    market       VARCHAR(10)  null comment '市场类型 （主板/中小板/创业板）',
-    exchange     VARCHAR(10)  null comment '交易所代码',
-    curr_type    VARCHAR(10)  null comment '交易货币',
-    list_status  VARCHAR(1)   null comment '上市状态： L上市 D退市 P暂停上市',
-    list_date    DATE null comment '上市日期',
-    delist_date  DATE null comment '退市日期',
-    is_hs        VARCHAR(1)   null comment '是否沪深港通标的，N否 H沪股通 S深股通',
-    created_date DATE null
-) COMMENT='股票基础信息数据';
-
+CREATE TABLE `pro_stock_basic` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `ts_code` varchar(10) COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'TS代码',
+  `symbol` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '股票代码',
+  `name` varchar(15) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '股票名称',
+  `area` varchar(10) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '所在地域',
+  `industry` varchar(10) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '所属行业',
+  `fullname` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '股票全称',
+  `enname` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '英文全称',
+  `market` varchar(10) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '市场类型 （主板/中小板/创业板）',
+  `exchange` varchar(10) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '交易所代码',
+  `curr_type` varchar(10) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '交易货币',
+  `list_status` varchar(1) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '上市状态： L上市 D退市 P暂停上市',
+  `list_date` date DEFAULT NULL COMMENT '上市日期',
+  `delist_date` date DEFAULT NULL COMMENT '退市日期',
+  `is_hs` varchar(1) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '是否沪深港通标的，N否 H沪股通 S深股通',
+  `created_date` date DEFAULT NULL,
+  `cnspell` varchar(45) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '拼音缩写',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10219 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='股票基础信息数据'
